@@ -138,7 +138,7 @@ const post=o=>call(API,{method:'POST',headers:{'Content-Type':'application/json'
 function show(m){fs.hidden=m!=='start';win.hidden=m!=='chat'}
 async function checkAvail(){if(token)return;
  try{const{d}=await get('a=avail');const on=!!d.available;st.classList.toggle('on',on);
-  stt.textContent=on?'Konsultant jest dostępny – możesz zacząć rozmowę.':'Konsultant jest teraz niedostępny. Napisz do nas na Discordzie – odpowiemy najszybciej, jak się da.';show(on?'start':'none')}
+  stt.textContent=on?'Konsultant jest dostępny – możesz zacząć rozmowę.':'Konsultant jest teraz niedostępny. Napisz do nas na Discordzie - odpowiemy najszybciej, jak się da.';show(on?'start':'none')}
  catch{stt.textContent='Nie udało się sprawdzić dostępności czatu.';show('none')}}
 async function poll(){if(!token||document.hidden)return;
  try{const{ok,status,d}=await get('a=room&token='+token);if(status===404){reset();return}if(!ok)return;add(d.messages||[]);if(d.status!=='active')end()}catch{}}
